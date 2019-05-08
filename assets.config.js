@@ -1,11 +1,30 @@
 /**
 @license
-Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+MIT License
+
+Copyright (c) 2019 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+@notice
+Convert PNG to ICO 
+npm install --global to-ico-cli
 */
 
 const WebpackBuildNotifierPlugin = require("webpack-build-notifier");
@@ -33,7 +52,7 @@ module.exports = {
       short_name: "MyPWA",
       description: "My awesome Progressive Web App!",
       background_color: "#ffffff",
-      theme_color: "#ff0000",
+      theme_color: "#3f51b5",
       crossorigin: "use-credentials", //can be null, use-credentials or anonymous
       ios: {
         "apple-mobile-web-app-title": "AppTitle",
@@ -42,7 +61,7 @@ module.exports = {
       icons: [
         {
           src: path.resolve("src/assets/icons/ios-icon.png"),
-          sizes: [48, 72, 96, 144, 192],
+          sizes: [16, 32, 48, 72, 96, 144, 192],
           destination: path.join("icons"),
           ios: true
         },

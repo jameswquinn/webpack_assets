@@ -9,8 +9,9 @@
     "scripts": {
         "start:webpack": "webpack-dev-server --mode development",
         "build:assets": "webpack --config assets.config.js",
-        "build:webpack": "rimraf dist icons manifest.json && webpack --config assets.config.js && webpack",
-        "rimraf": "rimraf dist icons manifest.json"
+        "build:webpack": "rimraf dist icons manifest.json && webpack --config assets.config.js && to-ico icons/icon_32x32.png > icons/favicon.ico && webpack",
+        "rimraf": "rimraf dist icons manifest.json",
+        "favicon": "to-ico icons/icon_32x32.png > icons/favicon.ico"
     },
     "dependencies": {
         "lit-element": "^2.0.0-rc.2"
