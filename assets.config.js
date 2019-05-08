@@ -22,9 +22,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-@example
-Convert PNG to ICO 
-npm install --global to-ico-cli
+@description
+We've added png to ico utility to generate favicon.ico for site.
+Please execute 'npm install --global to-ico-cli' or 'npm run prebuild' 
+to install.
 */
 
 const WebpackBuildNotifierPlugin = require("webpack-build-notifier");
