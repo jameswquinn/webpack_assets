@@ -25,6 +25,7 @@ SOFTWARE.
 
 const WebpackBuildNotifierPlugin = require("webpack-build-notifier");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const WebpackPwaManifest = require("webpack-pwa-manifest");
 const { GenerateSW } = require("workbox-webpack-plugin");
 const path = require("path");
 
@@ -32,10 +33,48 @@ module.exports = {
   mode: "production",
   plugins: [
     new CopyWebpackPlugin([
-      { from: "src/index.html", to: "." },
-      { from: "manifest.json", to: "." },
-      { from: "icons/**/*", to: "." }
+      { from: "src/index.html", to: "." }
     ]),
+    new WebpackPwaManifest({
+      filename: "manifest.json",
+      orientation: "portrait",
+      display: "standalone",
+      start_url: "/",
+      crossorigin: null,
+      inject: true,
+      fingerprints: false,
+      ios: true,
+      publicPath: null,
+      includeDirectory: false,
+      name: "My Progressive Web App",
+      short_name: "MyPWA",
+      description: "My awesome Progressive Web App!",
+      background_color: "#ffffff",
+      theme_color: "#3f51b5",
+      crossorigin: "use-credentials", //can be null, use-credentials or anonymous
+      ios: {
+        "apple-mobile-web-app-title": "AppTitle",
+        "apple-mobile-web-app-status-bar-style": "black"
+      },
+      icons: [
+        {
+          src: path.resolve("src/assets/icons/ios-icon.png"),
+          sizes: [16, 32, 48, 72, 96, 144, 192],
+          destination: path.join("icons"),
+          ios: true
+        },
+        {
+          src: path.resolve("src/assets/icons/ios-icon.png"),
+          size: 1024,
+          destination: path.join("icons"),
+          ios: "startup"
+        }
+      ],
+      ios: {
+        "apple-mobile-web-app-title": "AppTitle",
+        "apple-mobile-web-app-status-bar-style": "black"
+      }
+    }),
     new GenerateSW({
       swDest: "service-worker.js",
       skipWaiting: true,
@@ -44,7 +83,7 @@ module.exports = {
     }),
     new WebpackBuildNotifierPlugin({
       title: "My Project Webpack Build",
-      logo: path.resolve("src/assets/icons/ios-icon.png"),
+      logo: path.resolve("static/cropped-favicon.png"),
       suppressSuccess: true
     })
   ]

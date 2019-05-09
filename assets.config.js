@@ -27,7 +27,7 @@ We've added png to ico utility to generate favicon.ico for site.
 Please execute 'npm install --global to-ico-cli' or 'npm run prebuild' 
 to install.
 */
-
+const { startServer } = require("polyserve");
 const WebpackBuildNotifierPlugin = require("webpack-build-notifier");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
@@ -80,7 +80,7 @@ module.exports = {
     }),
     new WebpackBuildNotifierPlugin({
       title: "My Project Webpack Build",
-      logo: path.resolve("static/cropped-favicon.png"),
+      logo: path.resolve("src/assets/icons/ios-icon.png"),
       suppressSuccess: true
     })
   ]
