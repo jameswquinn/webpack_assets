@@ -8,8 +8,7 @@
         "build:assets": "webpack --config assets.config.js",
         "start:webpack": "webpack-dev-server --open",
         "build:webpack": "rimraf dist icons manifest.json && webpack --config assets.config.js && to-ico icons/icon_32x32.png > icons/favicon.ico && webpack",
-        "prebuild": "npm install --global to-ico-cli",
-        "build:sw": "rimraf dist icons manifest.json && webpack --config assets.config.js"
+        "prebuild": "npm install --global to-ico-cli"
     },
     "dependencies": {
         "lit-element": "^2.0.0-rc.2"
